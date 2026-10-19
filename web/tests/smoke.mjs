@@ -113,6 +113,9 @@ try {
   await page.getByRole('status').filter({ hasText: 'Draft saved in this browser.' }).waitFor();
   await page.reload({ waitUntil: 'networkidle' });
   await page.getByRole('button', { name: 'Research & levels', exact: true }).click();
+  // The form mounts before its effect restores the browser draft. Wait for
+  // that observable state instead of reading only the first attached input.
+  await page.waitForFunction(expected => document.querySelector('input[placeholder="Enter reviewed price"]')?.value === expected, '123.45');
   assert.equal(await page.getByPlaceholder('Enter reviewed price').first().inputValue(), '123.45');
   await page.screenshot({ path: path.join(output, 'research-desktop.png'), fullPage: true });
   await page.setViewportSize({ width: 390, height: 844 });
