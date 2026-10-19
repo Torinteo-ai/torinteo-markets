@@ -1,0 +1,117 @@
+{
+  "as_of": "2026-10-19T09:00:00.000000Z",
+  "asset_class": "crypto",
+  "bars": [
+    {
+      "close": 99.6,
+      "close_time": "2026-10-19T08:00:00.000000Z",
+      "high": 99.8,
+      "low": 99.1,
+      "open": 99.4,
+      "open_time": "2026-10-19T07:45:00.000000Z",
+      "volume": 1000
+    },
+    {
+      "close": 100.3,
+      "close_time": "2026-10-19T08:15:00.000000Z",
+      "high": 100.5,
+      "low": 99.5,
+      "open": 99.6,
+      "open_time": "2026-10-19T08:00:00.000000Z",
+      "volume": 1000
+    },
+    {
+      "close": 100.6,
+      "close_time": "2026-10-19T08:30:00.000000Z",
+      "high": 100.8,
+      "low": 100.25,
+      "open": 100.3,
+      "open_time": "2026-10-19T08:15:00.000000Z",
+      "volume": 1000
+    },
+    {
+      "close": 100.55,
+      "close_time": "2026-10-19T08:45:00.000000Z",
+      "high": 100.9,
+      "low": 100.3,
+      "open": 100.6,
+      "open_time": "2026-10-19T08:30:00.000000Z",
+      "volume": 1000
+    },
+    {
+      "close": 100.22,
+      "close_time": "2026-10-19T09:00:00.000000Z",
+      "high": 100.55,
+      "low": 99.95,
+      "open": 100.5,
+      "open_time": "2026-10-19T08:45:00.000000Z",
+      "volume": 1000
+    }
+  ],
+  "levels": [
+    {
+      "id": "invented-monthly-100",
+      "kind": "resistance",
+      "known_at": "2026-10-18T09:00:00.000000Z",
+      "price": 100.0,
+      "reference": "invented monthly review",
+      "timeframe": "1M"
+    },
+    {
+      "id": "invented-opposing-level",
+      "kind": "resistance",
+      "known_at": "2026-10-18T09:00:00.000000Z",
+      "price": 105.0,
+      "reference": "invented weekly review",
+      "timeframe": "1w"
+    }
+  ],
+  "news": {
+    "as_of": "2026-10-19T08:58:00.000000Z",
+    "events": [],
+    "source": "invented calendar review",
+    "status": "clear"
+  },
+  "quote": {
+    "as_of": "2026-10-19T09:00:00.000000Z",
+    "ask": 100.23,
+    "bid": 100.21,
+    "reference": "invented demo quote"
+  },
+  "quote_currency": "USD",
+  "reviews": {
+    "1M": {
+      "as_of": "2026-10-19T08:50:00.000000Z",
+      "bias": "NEUTRAL",
+      "reference": "invented review: 1M"
+    },
+    "1d": {
+      "as_of": "2026-10-19T08:50:00.000000Z",
+      "bias": "LONG",
+      "reference": "invented review: 1d"
+    },
+    "1h": {
+      "as_of": "2026-10-19T08:50:00.000000Z",
+      "bias": "LONG",
+      "reference": "invented review: 1h"
+    },
+    "1w": {
+      "as_of": "2026-10-19T08:50:00.000000Z",
+      "bias": "NEUTRAL",
+      "reference": "invented review: 1w"
+    },
+    "4h": {
+      "as_of": "2026-10-19T08:50:00.000000Z",
+      "bias": "LONG",
+      "reference": "invented review: 4h"
+    }
+  },
+  "schema_version": 1,
+  "source": {
+    "kind": "synthetic",
+    "provider": "invented_demo",
+    "reference": "torinteo_paper/demo_data.py; all prices and reviews are invented"
+  },
+  "symbol": "TEST/USD",
+  "timeframe": "15m"
+}

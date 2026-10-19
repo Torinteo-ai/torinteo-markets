@@ -1,0 +1,67 @@
+{
+  "as_of": "2026-10-19T09:00:00.000000Z",
+  "asset_class": "crypto",
+  "levels": [
+    {
+      "id": "invented-monthly-100",
+      "kind": "resistance",
+      "known_at": "2026-10-18T09:00:00.000000Z",
+      "price": 100.0,
+      "reference": "invented monthly review",
+      "timeframe": "1M"
+    },
+    {
+      "id": "invented-opposing-level",
+      "kind": "resistance",
+      "known_at": "2026-10-18T09:00:00.000000Z",
+      "price": 105.0,
+      "reference": "invented weekly review",
+      "timeframe": "1w"
+    }
+  ],
+  "news": {
+    "as_of": "2026-10-19T08:58:00.000000Z",
+    "events": [],
+    "source": "invented calendar review",
+    "status": "clear"
+  },
+  "quote": {
+    "as_of": "2026-10-19T09:00:00.000000Z",
+    "ask": 100.23,
+    "bid": 100.21,
+    "reference": "invented demo quote"
+  },
+  "quote_currency": "USD",
+  "reference": "invented demo context; not market evidence",
+  "reviews": {
+    "1M": {
+      "as_of": "2026-10-19T08:50:00.000000Z",
+      "bias": "NEUTRAL",
+      "reference": "invented review: 1M"
+    },
+    "1d": {
+      "as_of": "2026-10-19T08:50:00.000000Z",
+      "bias": "LONG",
+      "reference": "invented review: 1d"
+    },
+    "1h": {
+      "as_of": "2026-10-19T08:50:00.000000Z",
+      "bias": "LONG",
+      "reference": "invented review: 1h"
+    },
+    "1w": {
+      "as_of": "2026-10-19T08:50:00.000000Z",
+      "bias": "NEUTRAL",
+      "reference": "invented review: 1w"
+    },
+    "4h": {
+      "as_of": "2026-10-19T08:50:00.000000Z",
+      "bias": "LONG",
+      "reference": "invented review: 4h"
+    }
+  },
+  "schema_version": 1,
+  "source_kind": "synthetic",
+  "symbol": "TEST/USD",
+  "timeframe": "15m"
+}

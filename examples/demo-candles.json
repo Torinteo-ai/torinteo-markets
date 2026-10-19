@@ -1,0 +1,59 @@
+{
+  "as_of": "2026-10-19T09:00:00.000000Z",
+  "asset_class": "crypto",
+  "candles": [
+    {
+      "close": 99.6,
+      "close_time": "2026-10-19T08:00:00.000000Z",
+      "high": 99.8,
+      "low": 99.1,
+      "open": 99.4,
+      "open_time": "2026-10-19T07:45:00.000000Z",
+      "volume": 1000
+    },
+    {
+      "close": 100.3,
+      "close_time": "2026-10-19T08:15:00.000000Z",
+      "high": 100.5,
+      "low": 99.5,
+      "open": 99.6,
+      "open_time": "2026-10-19T08:00:00.000000Z",
+      "volume": 1000
+    },
+    {
+      "close": 100.6,
+      "close_time": "2026-10-19T08:30:00.000000Z",
+      "high": 100.8,
+      "low": 100.25,
+      "open": 100.3,
+      "open_time": "2026-10-19T08:15:00.000000Z",
+      "volume": 1000
+    },
+    {
+      "close": 100.55,
+      "close_time": "2026-10-19T08:45:00.000000Z",
+      "high": 100.9,
+      "low": 100.3,
+      "open": 100.6,
+      "open_time": "2026-10-19T08:30:00.000000Z",
+      "volume": 1000
+    },
+    {
+      "close": 100.22,
+      "close_time": "2026-10-19T09:00:00.000000Z",
+      "high": 100.55,
+      "low": 99.95,
+      "open": 100.5,
+      "open_time": "2026-10-19T08:45:00.000000Z",
+      "volume": 1000
+    }
+  ],
+  "observed_at": "2026-10-19T09:00:00.000000Z",
+  "point_in_time_archive": false,
+  "reference": "torinteo_paper/demo_data.py; all prices and reviews are invented",
+  "schema_version": 1,
+  "source": "invented_demo",
+  "source_kind": "synthetic",
+  "symbol": "TEST/USD",
+  "timeframe": "15m"
+}

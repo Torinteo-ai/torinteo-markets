@@ -1,0 +1,16 @@
+{
+  "bar": {
+    "close": 100.5,
+    "close_time": "2026-10-19T09:15:00.000000Z",
+    "high": 100.8,
+    "low": 100.1,
+    "open": 100.23,
+    "open_time": "2026-10-19T09:00:00.000000Z",
+    "volume": 1200
+  },
+  "observed_at": "2026-10-19T09:15:00.000000Z",
+  "provenance": "synthetic",
+  "schema_version": 1,
+  "symbol": "TEST/USD",
+  "timeframe": "15m"
+}
