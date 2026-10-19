@@ -4,19 +4,20 @@ Recorded on **19 October 2026**. The local owner app is complete: the browser us
 
 [![Paper checks](https://github.com/Torinteo-ai/torinteo-markets/actions/workflows/paper-checks.yml/badge.svg?branch=main)](https://github.com/Torinteo-ai/torinteo-markets/actions/workflows/paper-checks.yml?query=branch%3Amain)
 
-The badge links to the current workflow status. Publication, a completed GitHub Actions run for this web-app revision and a successful container build are **pending at the time this local verification record was written**; the badge is not evidence that those gates have already passed. The configured gates are in [Paper checks](../.github/workflows/paper-checks.yml).
+The published source revision [`d5baab2`](https://github.com/Torinteo-ai/torinteo-markets/commit/d5baab204e75231ece27c469df089ec7cc2de65d) passed [GitHub Actions run 39236011092](https://github.com/Torinteo-ai/torinteo-markets/actions/runs/39236011092). Both Python jobs, the standard Chromium workflow, the container build and authenticated container restart check succeeded. The badge links to current branch status; the linked run records the exact verified source revision. The gates are defined in [Paper checks](../.github/workflows/paper-checks.yml).
 
 ## Recorded results
 
 | Check | Result | Scope and evidence |
 | --- | --- | --- |
-| Python suite | **238 passed** on Python **3.12.14** | 167 existing/core tests, 30 web API tests, 21 market-sync tests and 20 public-market contract tests. |
+| Python suite | **238 passed** locally and in both CI matrix jobs | Local Python **3.12.14**; GitHub Python **3.11 / 3.12**. 167 existing/core tests, 30 web API tests, 21 market-sync tests and 20 public-market contract tests. |
 | Frontend production build | **Passed** | `npm --prefix web run build` runs strict TypeScript checking with `tsc --noEmit`, then the Vite production build. |
-| Browser acceptance | **Passed** | [Executable browser workflow](../web/tests/smoke.mjs) exercised the real local API and persisted native-engine paper ledger. |
+| Browser acceptance | **Passed locally and in CI** | [Executable browser workflow](../web/tests/smoke.mjs) exercised the real API and persisted native-engine paper ledger. GitHub used standard Chrome for Testing **151.0.7922.34**. |
 | Desktop and mobile rendering | **Passed** | Viewports of **1536 × 1024** and **390 × 844**; no horizontal overflow of the document or body, and zero browser `pageerror` events. |
 | Account display regressions | **Passed** | USD, EUR, the non-ISO asset code USDT, and missing/null amounts were checked so currency formatting does not crash or silently mislabel account values. |
 | Real public-data browser path | **Passed** | Actual Coinbase HTTPS responses for BTC/USD and ETH/USD, 100 closed 15-minute candles each; no provider doubles, decisions or orders. [Recorded observations](public-ui-verification.json). |
-| Container and hosted app | **Pending / not deployed** | Container build is configured in CI. Local persistence has been verified; remote-volume operation has not. |
+| Container build and persistence | **Passed in CI** | The built image authenticated its owner, created one LONG/PENDING paper order, restarted and preserved the experiment, order, decision, events and account in a disposable named volume. |
+| Hosted deployment | **Not performed** | The local application and container are verified. No hosted service, domain or shared-account backend was deployed. |
 
 The API suite covers the owner-session boundary, Host/Origin rejection, strict JSON and bounded inputs, static-file containment, experiment/provenance separation, observation time, idempotency and persisted state after restart. Sync regressions cover interrupted multi-symbol processing, resuming entries and expirations at a shared candle close, and preserving the newer-decision timing guard. These are targeted functional checks, not a claim of exhaustive security verification. See [web API tests](../tests/test_web_api.py) and [sync tests](../tests/test_web_sync.py).
 
@@ -123,7 +124,7 @@ The standard Playwright Chromium download CDN was unavailable in this workspace.
 TORINTEO_BROWSER_LAUNCH_FILE=/tmp/torinteo-browser-launch.json make web-test
 ```
 
-Those paths describe the verification environment, not files supplied by the repository. The final acceptance run removed the fallback's `--disable-web-security` argument and passed with web-security checks enabled. The executable still runs without the Linux process sandbox in this isolated workspace. HTTP owner authentication, Host/Origin and path-handling assertions come from the API tests. Standard Chromium is configured for CI and remains a separate validation gate.
+Those paths describe the verification environment, not files supplied by the repository. The final acceptance run removed the fallback's `--disable-web-security` argument and passed with web-security checks enabled. The executable still runs without the Linux process sandbox in this isolated workspace. HTTP owner authentication, Host/Origin and path-handling assertions come from the API tests. The separate standard Chromium **151.0.7922.34** run subsequently passed in GitHub Actions, independently of the workspace fallback.
 
 The workspace also required its authorized execution mode for local ASGI socket wakeups and outbound public-data HTTPS. This is an execution-environment restriction; a normal local installation needs the documented dependencies and network access for public quotes. No access workaround is part of the application.
 
@@ -131,4 +132,10 @@ The workspace also required its authorized execution mode for local ASGI socket 
 
 The verified deliverable is a local, persistent **paper-only** application. Its synthetic walkthrough and public-data view are usable, and its tests exercise the existing execution engine rather than an in-browser substitute. Optional research/decision providers have not been activated, and no live exchange account or order route has been exercised.
 
-GitHub publication, the standard-browser CI result and container build must be recorded against the published revision before describing those steps as complete. A remote deployment additionally needs durable storage and the network owner-authentication configuration described in [Web app design](WEB_APP_DESIGN.md). This verification does not assert that a hosted service is already running.
+GitHub publication and all configured gates are complete for source revision `d5baab204e75231ece27c469df089ec7cc2de65d`, in [run 39236011092](https://github.com/Torinteo-ai/torinteo-markets/actions/runs/39236011092). Both Python jobs logged **238 tests**. The browser logged **passed**, two expected calls, one closed STOP_LOSS order, five events and zero page errors. The container check logged authenticated access, a successful restart, one persisted pending order and one decision.
+
+The first standard-browser run exposed a test reading the newly mounted form before its effect restored the browser draft. The acceptance check now waits for the exact saved value, with a bounded timeout and the original assertion retained. The subsequent complete run passed. This change does not weaken persistence validation or add an arbitrary sleep.
+
+The [CI browser screenshots](https://github.com/Torinteo-ai/torinteo-markets/actions/runs/39236011092/artifacts/12180035507) are retained until **2 November 2026**; the saved images linked above remain in the repository. The container check is reproducible after `docker build --tag torinteo-markets:check .` with `python scripts/smoke_container.py`. It uses a disposable volume and synthetic evidence, and removes its temporary container and volume afterward.
+
+A remote deployment additionally needs durable storage and the network owner-authentication configuration described in [Web app design](WEB_APP_DESIGN.md). This verification does not assert that a hosted service is already running.

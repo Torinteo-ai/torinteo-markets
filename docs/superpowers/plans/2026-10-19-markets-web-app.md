@@ -64,4 +64,4 @@ Files: root launch/deployment configuration, README, workflow, `docs/WEB_APP_VER
 - [x] Build a repeatable local launch and persistent-volume container configuration.
 - [x] Run complete tests, production frontend build, desktop/mobile QA and restart check.
 - [x] Compare the primary screen with the concept and record functional deviations.
-- [ ] Publish to the observed GitHub parent using a guarded ref update and verify remote CI.
+- [x] Publish to the observed GitHub parent using a guarded ref update and verify remote CI. Source revision `d5baab2` passed run `39236011092`, including standard Chromium and container restart persistence.
