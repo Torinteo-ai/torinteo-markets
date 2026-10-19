@@ -1,0 +1,19 @@
+services:
+  markets:
+    build: .
+    ports:
+      - "127.0.0.1:8787:8787"
+    environment:
+      TORINTEO_WEB_TOKEN: ${TORINTEO_WEB_TOKEN:?Set a securely generated owner token of at least 32 characters}
+    volumes:
+      - markets-data:/data
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+volumes:
+  markets-data:

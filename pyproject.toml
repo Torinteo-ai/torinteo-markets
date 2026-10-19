@@ -4,13 +4,18 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "torinteo-markets"
-version = "0.1.0"
-description = "An isolated financial paper-trading worker with evidence and deterministic entry gates"
+version = "0.2.0"
+description = "An evidence-led paper trading desk with a persistent owner web app and deterministic entry gates"
 requires-python = ">=3.11"
 dependencies = []
 
+[project.optional-dependencies]
+web = ["fastapi==0.146.0", "uvicorn==0.54.0"]
+test = ["httpx==0.28.1"]
+
 [project.scripts]
 torinteo-paper = "torinteo_paper.cli:main"
+torinteo-markets = "torinteo_paper.web.__main__:main"
 
 [tool.setuptools.packages.find]
 include = ["torinteo_paper*"]

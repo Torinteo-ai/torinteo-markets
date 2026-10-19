@@ -1,0 +1,16 @@
+.git
+.venv
+.env
+.env.*
+runtime
+**/node_modules
+**/dist
+**/__pycache__
+**/*.sqlite*
+**/*.pyc
+design
+docs
+tests
+web/tests
+build
+**/*.egg-info

@@ -24,7 +24,62 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Check syntax
         run: python -m compileall -q torinteo_paper integrations tests
+      - name: Install pinned web test environment
+        run: python -m pip install -r requirements-web.txt
       - name: Test paper rules and optional provider contracts
         run: python -m unittest discover -s tests -v
       - name: Run labelled synthetic demo
         run: python -m torinteo_paper demo --db "${RUNNER_TEMP}/torinteo-demo.sqlite3"
+
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install and build
+        run: |
+          python -m pip install -r requirements-web.txt
+          npm --prefix web ci
+          npm --prefix web run build
+      - name: Install browser
+        working-directory: web
+        run: npx playwright install --with-deps chromium
+      - name: Run actual owner web workflow
+        run: |
+          python -m torinteo_paper.web --data-dir "${RUNNER_TEMP}/torinteo-web" --static-dir web/dist &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID"' EXIT
+          python - <<'PY'
+          import time, urllib.request
+          for attempt in range(30):
+              try:
+                  urllib.request.urlopen('http://127.0.0.1:8787/api/health', timeout=1).read()
+                  break
+              except OSError:
+                  if attempt == 29: raise
+                  time.sleep(0.2)
+          PY
+          TORINTEO_SCREENSHOTS="${RUNNER_TEMP}/torinteo-screenshots" npm --prefix web run test:e2e
+      - name: Save browser verification images
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: torinteo-browser-verification
+          path: ${{ runner.temp }}/torinteo-screenshots
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Build persistent-volume container
+        run: docker build --tag torinteo-markets:check .
+      - name: Verify authenticated container restart persistence
+        timeout-minutes: 5
+        run: python scripts/smoke_container.py

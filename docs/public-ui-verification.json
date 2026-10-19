@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "observations": [
+    {
+      "symbol": "BTC/USD",
+      "provider": "coinbase-public",
+      "timeframe": "15m",
+      "candles": 100,
+      "observed_at": "2026-10-19T09:58:27.652619Z",
+      "quote_as_of": "2026-10-19T09:58:27.192267Z",
+      "last_close": "2026-10-19T09:45:00.000000Z"
+    },
+    {
+      "symbol": "ETH/USD",
+      "provider": "coinbase-public",
+      "timeframe": "15m",
+      "candles": 100,
+      "observed_at": "2026-10-19T09:58:29.382572Z",
+      "quote_as_of": "2026-10-19T09:58:28.427060Z",
+      "last_close": "2026-10-19T09:45:00.000000Z"
+    }
+  ],
+  "decisions": 0,
+  "orders": 0,
+  "pageErrors": 0,
+  "real_public_http": true,
+  "provider_doubles": false
+}
