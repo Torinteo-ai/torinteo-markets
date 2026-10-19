@@ -9,10 +9,9 @@ TradingAgents and Jev have optional adapters tested with injected contract
 fixtures. Those checks do not establish installed upstream packages, working
 provider credentials, real model latency or trading performance.
 
-Current repository: [Torinteo-ai/KYRONYX](https://github.com/Torinteo-ai/KYRONYX),
-ID `1238002647`. The requested repository name is `torinteo-markets`. Renaming is
-pending repository-settings authentication; this source targets the existing
-KYRONYX repository. Publication and renaming are separate operations.
+Repository: [Torinteo-ai/torinteo-markets](https://github.com/Torinteo-ai/torinteo-markets),
+GitHub ID `1238002647`. The initial paper prototype is published on `main`.
+The repository rename was confirmed on 19 October 2026.
 
 ## Run locally
 

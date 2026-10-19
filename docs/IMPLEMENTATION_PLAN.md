@@ -6,12 +6,14 @@ Deliver a runnable native paper simulator with evidence validation, deterministi
 entry checks, durable accounting and explicit optional research/data adapters.
 The controlling design is [DESIGN.md](DESIGN.md).
 
-The target is the existing empty `Torinteo-ai/KYRONYX` GitHub repository,
-repository ID `1238002647`. Product branding is **Torinteo Markets** and the
-requested future slug is `torinteo-markets`. Repository-settings authentication
-is still required to rename it; the available connector does not expose that
-operation. Initial source publication can target KYRONYX. Do not report the
-rename, publication or deployment as complete without evidence for that action.
+The repository is [Torinteo-ai/torinteo-markets](https://github.com/Torinteo-ai/torinteo-markets),
+GitHub ID `1238002647`. Product branding is **Torinteo Markets**. The repository
+was empty when selected under its former name, KYRONYX. The initial source is
+published at [51a4cd6](https://github.com/Torinteo-ai/torinteo-markets/commit/51a4cd6ddbfecb65af0ad1cc4e86e2af1ca7ea76),
+and its rename was confirmed on 19 October 2026. The initial
+[GitHub checks passed on Python 3.11 and 3.12](https://github.com/Torinteo-ai/torinteo-markets/actions/runs/39224099769).
+Publication and the repository rename are complete; optional provider activation
+and deployment retain their separate requirements below.
 
 ## Component scope
 
@@ -50,10 +52,11 @@ the actual command results and source-control state when they are performed.
    Check that documentation describes the native runnable path and the
    incomplete Freqtrade host accurately. Avoid tests that only repeat the
    implementation's own assumptions.
-6. **Publish the reviewable source.** Confirm repository identity, then publish
-   the initial source to KYRONYX through the available repository capability.
-   Record the branch/commit or review URL. Treat renaming as a separate pending
-   settings action if authentication remains unavailable.
+6. **Publish the reviewable source.** Confirm repository identity, publish to
+   `Torinteo-ai/torinteo-markets`, and record the branch/commit or review URL.
+   Initial publication and rename are complete, with evidence linked above.
+   Preserve the repository ID and verify source changes against the current
+   branch head when publishing subsequent increments.
 
 ## Optional integration activation
 

@@ -7,12 +7,11 @@ simulator, explicit data contracts and a durable audit. Synthetic demonstrations
 must remain labelled; they do not represent market observations or an operator's
 real holdings.
 
-The confirmed destination is the existing empty `Torinteo-ai/KYRONYX` GitHub
-repository, ID `1238002647`. Product name: **Torinteo Markets**. The requested
-repository slug is `torinteo-markets`. The connector does not provide repository
-renaming, and browser settings authentication is unavailable at this checkpoint.
-Source can be published to KYRONYX independently of that rename. This document
-does not assert that either operation has completed.
+The repository is [Torinteo-ai/torinteo-markets](https://github.com/Torinteo-ai/torinteo-markets),
+GitHub ID `1238002647`. Product name: **Torinteo Markets**. It was selected while
+empty and named KYRONYX. The initial source is published, and the rename was
+confirmed on 19 October 2026. Implementation verification and remaining provider
+activation limits are recorded in [VERIFICATION.md](VERIFICATION.md).
 
 ## Implemented workflow
 

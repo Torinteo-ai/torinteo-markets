@@ -1,10 +1,9 @@
 # Upstream verification and adapter boundaries
 
-Reviewed on 19 October 2026. Product: **Torinteo Markets**. The confirmed target
-is the existing empty [Torinteo-ai/KYRONYX](https://github.com/Torinteo-ai/KYRONYX)
-GitHub repository (repository ID `1238002647`). Its planned name is
-`torinteo-markets`; the rename has not been applied at this checkpoint because
-repository-settings authentication is still required.
+Reviewed on 19 October 2026. Product: **Torinteo Markets**. The project is
+published in [Torinteo-ai/torinteo-markets](https://github.com/Torinteo-ai/torinteo-markets),
+GitHub repository ID `1238002647`. The rename from KYRONYX was confirmed on
+19 October 2026; this is the same repository that received the initial build.
 
 ## What was verified
 
